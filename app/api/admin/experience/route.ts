@@ -41,7 +41,7 @@ export async function POST(request: NextRequest) {
   try {
     const experience: Omit<Experience, 'id'> = await request.json();
     const id = await createExperience(experience);
-    return NextResponse.json({ id, success: true }, { status: 201 });
+    return NextResponse.json({ id: id.toString(), success: true }, { status: 201 });
   } catch (error) {
     console.error('Error creating experience:', error);
     return NextResponse.json(

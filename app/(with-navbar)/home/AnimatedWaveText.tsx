@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { Highlighter } from "@/components/ui/highlighter";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
+import { motion } from "motion/react";
 
 const AnimatedWaveText = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -13,17 +14,16 @@ const AnimatedWaveText = () => {
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
       >
-        A{" "}
-        <Highlighter
-          iterations={2}
-          animationDuration={2000}
-          action="highlight"
-          color="var(--color-accent)"
-        >
-          <span className="dark:text-black text-white">
-            Full Stack Developer.
-          </span>
-        </Highlighter>
+        <motion.div className="relative mx-4 my-4 flex flex-col items-center justify-center gap-4 text-center sm:mx-0 sm:mb-0 sm:flex-row">
+          <LayoutTextFlip
+            text="A "
+            words={[
+              "Full Stack Developer",
+              "Cloud Engineer",
+              "SAP BASIS Consultant",
+            ]}
+          />
+        </motion.div>
       </div>
       <span
         className={`absolute left-0 bottom-0 w-full h-[8px] sm:h-[10px] md:h-[12px] bg-repeat-x bg-bottom ${

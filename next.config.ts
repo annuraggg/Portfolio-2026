@@ -7,7 +7,10 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
-      new URL("https://cdn.discordapp.com/**"),
+      {
+        protocol: 'https',
+        hostname: '**.discordapp.com',
+      },
       {
         protocol: 'https',
         hostname: '**.r2.dev',

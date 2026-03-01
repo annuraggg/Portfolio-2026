@@ -46,23 +46,21 @@ export default function SkillsManagementPage() {
 
     try {
       const method = editingSkill ? "PUT" : "POST";
-      const body = editingSkill ? { id: editingSkill.id, ...formData } : formData;
+      const body = editingSkill
+        ? { id: editingSkill.id, ...formData }
+        : formData;
 
-      const response = await fetch("/api/admin/skills", {
+      await fetch("/api/admin/skills", {
         method,
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
 
-      if (response.ok) {
-        toast.success(editingSkill ? "Skill updated!" : "Skill created!");
-        setIsFormOpen(false);
-        setEditingSkill(null);
-        resetForm();
-        fetchSkills();
-      } else {
-        toast.error("Failed to save skill");
-      }
+      toast.success(editingSkill ? "Skill updated!" : "Skill created!");
+      setIsFormOpen(false);
+      setEditingSkill(null);
+      resetForm();
+      fetchSkills();
     } catch (error) {
       console.error("Error saving skill:", error);
       toast.error("An error occurred");
@@ -107,14 +105,23 @@ export default function SkillsManagementPage() {
   };
 
   if (isLoading && !isFormOpen) {
-    return <div className="flex items-center justify-center min-h-[400px]">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center min-h-[400px]">
+        Loading...
+      </div>
+    );
   }
 
   return (
     <div>
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Skills Management</h1>
-        <Button onClick={() => { resetForm(); setIsFormOpen(true); }}>
+        <Button
+          onClick={() => {
+            resetForm();
+            setIsFormOpen(true);
+          }}
+        >
           <Plus className="w-4 h-4 mr-2" />
           Add Skill
         </Button>
@@ -127,30 +134,44 @@ export default function SkillsManagementPage() {
               <h2 className="text-2xl font-bold">
                 {editingSkill ? "Edit Skill" : "Add New Skill"}
               </h2>
-              <Button variant="ghost" onClick={() => { setIsFormOpen(false); setEditingSkill(null); }}>
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  setIsFormOpen(false);
+                  setEditingSkill(null);
+                }}
+              >
                 <X className="w-5 h-5" />
               </Button>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium mb-1">Skill Name *</label>
+                <label className="block text-sm font-medium mb-1">
+                  Skill Name *
+                </label>
                 <input
                   type="text"
                   required
                   value={formData.title}
-                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, title: e.target.value })
+                  }
                   className="w-full px-3 py-2 border rounded-md bg-background"
                   placeholder="e.g., JavaScript, React, Python"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-1">Progress/Level (Optional)</label>
+                <label className="block text-sm font-medium mb-1">
+                  Progress/Level (Optional)
+                </label>
                 <input
                   type="text"
                   value={formData.progress || ""}
-                  onChange={(e) => setFormData({ ...formData, progress: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({ ...formData, progress: e.target.value })
+                  }
                   className="w-full px-3 py-2 border rounded-md bg-background"
                   placeholder="e.g., Expert, Intermediate, Advanced"
                 />
