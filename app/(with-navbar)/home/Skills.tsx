@@ -23,6 +23,7 @@ const Skills = async () => {
 
   const skillsData = await getAllSkills();
   const images = await getValidImages(skillsData.map((skill) => skill.title));
+  console.log(images)
 
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 lg:py-32 xl:px-32 2xl:px-64 py-12 sm:py-16 md:py-20">
