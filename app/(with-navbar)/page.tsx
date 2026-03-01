@@ -5,8 +5,8 @@ import { Suspense } from "react";
 import MouseFollower from "@/components/MouseFollower";
 
 const About = dynamic(() => import("./home/About"));
-const Estimate = dynamic(() => import("./home/Estimate"));
-const FAQ = dynamic(() => import("./home/FAQ"));
+// const Estimate = dynamic(() => import("./home/Estimate"));
+// const FAQ = dynamic(() => import("./home/FAQ"));
 const Skills = dynamic(() => import("./home/Skills"));
 const isFeatureEnabled = getFeatureFlag("enablemousefollower", false);
 
@@ -21,12 +21,12 @@ export default async function Home() {
       <Suspense fallback={<div className="min-h-[400px]" />}>
         <Skills />
       </Suspense>
-      <Suspense fallback={<div className="min-h-[400px]" />}>
+      {/* <Suspense fallback={<div className="min-h-[400px]" />}>
         <Estimate />
-      </Suspense>
-      <Suspense fallback={<div className="min-h-[400px]" />}>
+      </Suspense> */}
+      {/* <Suspense fallback={<div className="min-h-[400px]" />}>
         <FAQ />
-      </Suspense>
+      </Suspense> */}
     </main>
   );
 }
