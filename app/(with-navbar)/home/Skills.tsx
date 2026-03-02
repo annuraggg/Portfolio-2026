@@ -5,25 +5,11 @@ import React from "react";
 import { SkillItem } from "./SkillItem";
 
 const Skills = async () => {
-  async function getValidImages(slugs: string[]) {
-    const checks = slugs.map(async (slug) => {
-      const cleanSlug = slug.replace(/\s+/g, "").toLowerCase();
-      const url = `https://cdn.simpleicons.org/${cleanSlug}/${cleanSlug}`;
-      try {
-        const res = await fetch(url, { method: "HEAD" });
-        if (res.ok) {
-          return url;
-        }
-      } catch {}
-      return null;
-    });
-
-    const results = await Promise.all(checks);
-    return results.filter((u): u is string => u !== null);
-  }
-
   const skillsData = await getAllSkills();
-  const images = await getValidImages(skillsData.map((skill) => skill.title));
+  const images = skillsData.map((skill) => {
+    const cleanSlug = skill.title.replace(/\s+/g, "").toLowerCase();
+    return `https://cdn.simpleicons.org/${cleanSlug}/${cleanSlug}`;
+  });
 
   return (
     <div className="px-4 sm:px-6 md:px-12 lg:px-24 lg:py-32 xl:px-32 2xl:px-64 py-12 sm:py-16 md:py-20">
