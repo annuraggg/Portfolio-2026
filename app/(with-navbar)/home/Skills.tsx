@@ -34,7 +34,7 @@ const Skills = async () => {
         Green items include proficiency. Click to see
       </p>
       <div className="flex flex-col lg:flex-row justify-start items-center lg:items-start gap-8">
-        <div className="w-full lg:w-auto flex justify-center -mt-0 lg:-mt-14">
+        <div className="w-full lg:w-auto flex justify-center mt-0 lg:-mt-14">
           <IconCloud images={images} />
         </div>
 

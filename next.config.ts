@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: '**.r2.cloudflarestorage.com',
+      }, {
+        protocol: 'https',
+        hostname: 'cdn.simpleicons.org',
       }
     ],
     formats: ['image/webp', 'image/avif'],
