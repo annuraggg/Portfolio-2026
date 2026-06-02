@@ -1,9 +1,7 @@
-"use client";
-
 import { skillsData } from "@/data/skills";
 import { credentials } from "@/data/credentials";
-import { SkillItem } from "./SkillItem";
-import { CredentialItem } from "./CredentialItem";
+import { SkillItem } from "@/components/skills/SkillItem";
+import { CredentialItem } from "@/components/skills/CredentialItem";
 
 const Skills = () => {
   return (
@@ -19,7 +17,7 @@ const Skills = () => {
       </p>
 
       <ul className="flex flex-wrap gap-5 items-center justify-center">
-        {skillsData
+        {[...skillsData]
           .sort((a, b) => a.title.localeCompare(b.title))
           .map((skill, index) => (
             <SkillItem key={skill.title} {...skill} index={index} />

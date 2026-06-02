@@ -1,68 +1,61 @@
-// app/Cases/[id]/page.tsx
-
 import { notFound } from "next/navigation";
+import cases from "@/data/cases";
+import BackLink from "@/components/shared/BackLink";
+import CaseHeader from "@/components/case-study/CaseHeader";
+import CaseResources from "@/components/case-study/CaseResources";
+import CaseCover from "@/components/case-study/CaseCover";
+import CaseDetails from "@/components/case-study/CaseDetails";
+import InfrastructureStack from "@/components/case-study/InfrastructureStack";
+import EngineeringDecisions from "@/components/case-study/EngineeringDecisions";
+import DeploymentStrategy from "@/components/case-study/DeploymentStrategy";
+import MigrationPlan from "@/components/case-study/MigrationPlan";
+import ScalingStrategy from "@/components/case-study/ScalingStrategy";
+import SecurityHighlights from "@/components/case-study/SecurityHighlights";
+import MonitoringStrategy from "@/components/case-study/MonitoringStrategy";
+import CaseChallenges from "@/components/case-study/CaseChallenges";
+import CaseArtifacts from "@/components/case-study/CaseArtifacts";
+import CaseFooter from "@/components/case-study/CaseFooter";
+import type { DynamicRoutePageProps } from "@/types/routes";
 
-import Cases from "@/data/case";
-
-import BackButton from "./BackButton";
-import Header from "./Header";
-import Links from "./Links";
-import Cover from "./Cover";
-import Details from "./Details";
-import Technologies from "./Technologies";
-import EngineeringDecisions from "./EngineeringDecisions";
-import DeploymentStrategy from "./DeploymentStrategy";
-import MigrationPlan from "./MigrationPlan";
-import ScalingStrategy from "./ScalingStrategy";
-import SecurityHighlights from "./SecurityHighlights";
-import MonitoringStrategy from "./MonitoringStrategy";
-import Challenges from "./Challenges";
-import StudyArtifacts from "./Artifacts";
-import Footer from "./Footer";
-
-interface CasePageProps {
-  params: Promise<{ id: string }>;
-}
-
-export default async function CasePage({ params }: CasePageProps) {
+export default async function CasePage({ params }: DynamicRoutePageProps) {
   const { id } = await params;
 
-  const Case = Cases.find((p) => p.id === String(id));
+  const study = cases.find((item) => item.id === String(id));
 
-  if (!Case) return notFound();
+  if (!study) return notFound();
 
   return (
     <div className="animate__animated animate__fadeIn">
-      <BackButton href="/cloud" />
+      <BackLink href="/cloud" />
 
       <div className="flex mt-5 md:mt-0 items-center justify-center p-10 flex-col">
-        <Header title={Case.title} system={Case.system} date={Case.date} />
+        <CaseHeader title={study.title} system={study.system} date={study.date} />
 
-        <Links resources={Case.repositories} />
+        <CaseResources resources={study.repositories} />
 
-        <Cover cover={Case.cover as string} title={Case.title} />
+        <CaseCover cover={study.cover as string} title={study.title} />
 
-        <Details study={Case} />
+        <CaseDetails study={study} />
 
-        <Technologies stack={Case.stack} />
+        <InfrastructureStack stack={study.stack} />
 
-        <EngineeringDecisions decisions={Case.engineeringDecisions} />
+        <EngineeringDecisions decisions={study.engineeringDecisions} />
 
-        <DeploymentStrategy deployment={Case.deployment} />
+        <DeploymentStrategy deployment={study.deployment} />
 
-        <MigrationPlan phases={Case.migrationPlan} />
+        <MigrationPlan phases={study.migrationPlan} />
 
-        <ScalingStrategy scaling={Case.scaling} />
+        <ScalingStrategy scaling={study.scaling} />
 
-        <SecurityHighlights security={Case.security} />
+        <SecurityHighlights security={study.security} />
 
-        <MonitoringStrategy monitoring={Case.monitoring} />
+        <MonitoringStrategy monitoring={study.monitoring} />
 
-        <Challenges challenges={Case.challenges} />
+        <CaseChallenges challenges={study.challenges} />
 
-        <StudyArtifacts screenshots={Case.screenshots} title={Case.title} />
+        <CaseArtifacts screenshots={study.screenshots} title={study.title} />
 
-        <Footer />
+        <CaseFooter />
       </div>
     </div>
   );

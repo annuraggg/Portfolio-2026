@@ -1,22 +1,18 @@
-// app/projects/[id]/page.tsx
 import { notFound } from "next/navigation";
 import projects from "@/data/projects";
-import BackButton from "./ProjectBackButton";
-import ProjectHeader from "./ProjectHeader";
-import ProjectLinks from "./ProjectLinks";
-import ProjectCover from "./ProjectCover";
-import ProjectDetails from "./ProjectDetails";
-import ProjectProblemSolution from "./ProjectProblemSolution";
-import ProjectTechnologies from "./ProjectTechnologies";
-import ProjectHighlights from "./ProjectHighlights";
-import ProjectScreenshots from "./ProjectScreenshots";
-import ProjectFooter from "./ProjectFooter";
+import BackLink from "@/components/shared/BackLink";
+import ProjectHeader from "@/components/project/ProjectHeader";
+import ProjectLinks from "@/components/project/ProjectLinks";
+import ProjectCover from "@/components/project/ProjectCover";
+import ProjectDetails from "@/components/project/ProjectDetails";
+import ProjectProblemSolution from "@/components/project/ProjectProblemSolution";
+import ProjectTechnologies from "@/components/project/ProjectTechnologies";
+import ProjectHighlights from "@/components/project/ProjectHighlights";
+import ProjectScreenshots from "@/components/project/ProjectScreenshots";
+import ProjectFooter from "@/components/project/ProjectFooter";
+import type { DynamicRoutePageProps } from "@/types/routes";
 
-interface ProjectPageProps {
-  params: Promise<{ id: string }>;
-}
-
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function ProjectPage({ params }: DynamicRoutePageProps) {
   const { id } = await params;
   const project = projects.find((p) => p.id === String(id));
 
@@ -24,7 +20,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <div className="md:p-16 animate__animated animate__fadeIn">
-      <BackButton href="/" />
+      <BackLink href="/fullstack" />
 
       <div className="flex mt-5 md:mt-0 items-center justify-center p-10 flex-col">
         <ProjectHeader title={project.title} date={project.date} />

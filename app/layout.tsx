@@ -11,11 +11,11 @@ import {
   neueItalic,
   gloock,
 } from "@/lib/fonts";
-import LogRocket from "logrocket";
-import Scripts from "next/script";
 import ReactLenis from "lenis/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import AnalyticsScripts from "@/components/layout/AnalyticsScripts";
+import LogRocketInit from "@/components/layout/LogRocketInit";
 
 export const metadata: Metadata = {
   title: "Anurag Sawant - Full Stack Developer",
@@ -28,11 +28,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  LogRocket.init(process.env.NEXT_PUBLIC_LOGROCKET_ID as string);
-  LogRocket.identify(
-    Math.random().toString(36).substring(2) + Date.now().toString(36)
-  );
-
   return (
     <html
       lang="en"
@@ -41,10 +36,11 @@ export default function RootLayout({
       <link rel="icon" type="image/png" href="/logoicon.png" />
       <body>
         <ReactLenis root>{children}</ReactLenis>
+        <LogRocketInit />
         <SpeedInsights />
         <Analytics />
       </body>
-      <Scripts />
+      <AnalyticsScripts />
     </html>
   );
 }

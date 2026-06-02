@@ -1,7 +1,7 @@
-import DiscordProfile from "./DiscordProfile";
+import DiscordProfile from "@/components/contact/DiscordProfile";
 import Image from "next/image";
 import Link from "next/link";
-import ContactForm from "./ContactForm";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata = {
   title: "Contact",
