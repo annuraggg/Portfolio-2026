@@ -2,18 +2,11 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { mainNavItems } from "@/data/navigation";
 
-const navItems = [
-  { name: "About", href: "/about" },
-  { name: "Cloud", href: "/cloud" },
-  { name: "FullStack", href: "/fullstack" },
-  // { name: "SAP", href: "/sap" },
-  { name: "Contact", href: "/contact" },
-];
-
-const MiddleBar = () => {
+const PrimaryNav = () => {
   const pathname = usePathname();
-  const activeIndex = navItems.findIndex((item) => item.href === pathname);
+  const activeIndex = mainNavItems.findIndex((item) => item.href === pathname);
 
   // Only show sliding highlights if pathname is in navItems
   const showHighlight = activeIndex !== -1;
@@ -50,7 +43,7 @@ const MiddleBar = () => {
 
       {/* Nav items */}
       <div className="border-2 backdrop-blur-lg mt-0.5 bg-white/0 hover:bg-white/5 border-[#3F3E3E] rounded-full p-1 flex gap-2 items-center justify-center">
-        {navItems.map((item, index) => {
+      {mainNavItems.map((item, index) => {
           const isActive = index === activeIndex && showHighlight;
           return (
             <Link
@@ -72,4 +65,4 @@ const MiddleBar = () => {
   );
 };
 
-export default MiddleBar;
+export default PrimaryNav;

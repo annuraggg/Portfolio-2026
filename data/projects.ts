@@ -1,31 +1,4 @@
-export interface Project {
-  id: string;
-  title: string;
-  date: string;
-  cover?: string;
-  role: string;
-  timeline: string;
-
-  waiter?: string;
-
-  summary: string;
-  description: string;
-
-  problem?: string;
-  solution?: string;
-
-  highlights: string[];
-  technologies: string[];
-
-  screenshots?: string[];
-  links?: {
-    github?: string[];
-    demo?: string;
-  };
-
-  development?: boolean;
-  group?: string;
-}
+import type { Project } from "@/types/project";
 
 const projects: Project[] = [
   {
@@ -70,7 +43,6 @@ const projects: Project[] = [
       demo: "https://campus.scriptopia.tech",
     },
     development: false,
-    group: "Scriptopia Suite",
   },
   {
     id: "scriptopia-enterprise",
@@ -114,7 +86,6 @@ const projects: Project[] = [
       demo: "https://enterprise.scriptopia.tech",
     },
     development: false,
-    group: "Scriptopia Suite",
   },
   {
     id: "scriptopia-code",
@@ -156,34 +127,7 @@ const projects: Project[] = [
       demo: "https://www.scriptopia.tech",
     },
     development: true,
-    group: "Scriptopia Suite",
   },
-  // {
-  //   id: 6,
-  //   title: "Convostream API",
-  //   date: "2024",
-  //   cover: "/projects/convostreamAPI/cover.png",
-  //   role: "Full Stack Developer",
-  //   timeline: "March 2024 - Present",
-  //   summary:
-  //     "A RESTful API that allows developers to enable end-to-end encrypted chat functionality in their applications",
-  //   description: `Convostream API is a RESTful API that allows developers to enable end-to-end encrypted chat functionality in their applications. It provides a secure and reliable way to implement chat features like messaging, voice calls, and video calls. Convostream API is designed to be flexible and scalable, with support for React Apps. It also includes features like message history, notifications, and user authentication, making it an ideal solution for developers building chat applications.`,
-  //   problem: `Developers often struggle to implement secure and reliable chat functionality in their applications. They lack the expertise and resources to build end-to-end encrypted chat features, leading to privacy and security concerns for users.`,
-  //   solution: `Convostream API provides a secure and reliable way to implement end-to-end encrypted chat functionality in applications. It offers features like messaging, voice calls, and video calls, with support for React Apps. The API also includes message history, notifications, and user authentication, making it easy for developers to build chat applications that prioritize privacy and security.`,
-  //   highlights: [
-  //     "Messaging: Implement end-to-end encrypted messaging features in applications.",
-  //     "Voice Calls: Enable secure voice calls between users with end-to-end encryption.",
-  //     "Video Calls: Support video calls with end-to-end encryption for enhanced privacy and security.",
-  //     "Message History: Store and retrieve message history for users to view and manage conversations.",
-  //     "Notifications: Send real-time notifications to users for new messages, calls, and updates.",
-  //   ],
-  //   technologies: ["Node.js", "Express", "MongoDB", "Socket.IO", "React"],
-  //   links: {
-  //     github: ["https://github.com/annuraggg/ConvoStream-API"],
-  //     demo: "https://www.npmjs.com/package/convostream",
-  //   },
-  //   development: false,
-  // },
   {
     id: "docsdepot",
     title: "DocsDepot",

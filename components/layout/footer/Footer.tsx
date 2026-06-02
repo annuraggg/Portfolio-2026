@@ -1,8 +1,8 @@
-import FooterLinks from "./FooterLinks";
-import FooterInteractive from "./FooterInteractive";
 import Image from "next/image";
+import FooterNav from "./FooterNav";
+import FooterSocialLinks from "./FooterSocialLinks";
 
-const FooterContainer = () => {
+const Footer = () => {
   return (
     <div className="md:w-full w-[100vw] h-[70vh] py-5 md:py-0 md:h-[45vh] bg-[#111011] border-y border-y-[#262726]">
       <div className="w-full h-[95%] flex flex-col md:flex-row items-center justify-center md:justify-around">
@@ -26,8 +26,8 @@ const FooterContainer = () => {
           </p>
         </div>
         <div className="flex gap-20">
-          <FooterLinks />
-          <FooterInteractive />
+          <FooterSocialLinks />
+          <FooterNav />
         </div>
       </div>
 
@@ -38,4 +38,4 @@ const FooterContainer = () => {
   );
 };
 
-export default FooterContainer;
+export default Footer;

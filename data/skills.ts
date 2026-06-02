@@ -1,4 +1,6 @@
-export const skillsData = [
+import type { Skill } from "@/types/skills";
+
+export const skillsData: Skill[] = [
   { title: "AWS", progress: "https://roadmap.sh/aws?s=646cf314cb6301e67f89a4c5" },
   { title: "Chakra UI" },
   { title: "CSS" },

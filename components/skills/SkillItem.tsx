@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-interface SkillItemProps {
-  title: string;
-  progress?: string;
-  index: number;
-}
+import type { SkillItemProps } from "@/types/skills";
 
 export const SkillItem: React.FC<SkillItemProps> = ({
   title,

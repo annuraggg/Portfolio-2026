@@ -1,18 +1,12 @@
 import Link from "next/link";
+import { footerNavItems } from "@/data/navigation";
 
-const navItems = [
-  { name: "Work", href: "/" },
-  { name: "Info", href: "/info" },
-  { name: "Skills", href: "/skills" },
-  { name: "Contact", href: "/contact" },
-];
-
-const FooterInteractive = () => {
+const FooterNav = () => {
   return (
     <div>
       <p className="text-gray-500 mb-2 text-xs">MAIN</p>
       <div className="text-lg flex flex-col gap-2">
-        {navItems.map((item) => (
+        {footerNavItems.map((item) => (
           <Link
             key={item.name}
             className="hover:text-blue-500 duration-300 transition-all cursor-pointer"
@@ -26,4 +20,4 @@ const FooterInteractive = () => {
   );
 };
 
-export default FooterInteractive;
+export default FooterNav;

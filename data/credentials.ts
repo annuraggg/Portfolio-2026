@@ -1,4 +1,6 @@
-export const credentials = [
+import type { Credential } from "@/types/skills";
+
+export const credentials: Credential[] = [
   {
     title: "Rising Star: Technical",
     date: "February 2024",
