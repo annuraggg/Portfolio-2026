@@ -1,4 +1,4 @@
-import StackSection from "./CaseStackSection";
+import StackSection from "./StackSection";
 
 export default function InfrastructureStack({
   stack,

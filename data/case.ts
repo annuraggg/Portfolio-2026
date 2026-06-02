@@ -202,7 +202,7 @@ const cloudCaseStudies: CloudCaseStudy[] = [
       },
     ],
 
-    screenshots: ["/cloud/scriptopia-campus/architecture.png"],
+    screenshots: [],
   },
 ];
 

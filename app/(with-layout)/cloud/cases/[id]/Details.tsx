@@ -1,3 +1,4 @@
+"use client";
 import { CloudCaseStudy } from "@/data/case";
 
 export default function CaseStudyDetails({ study }: { study: CloudCaseStudy }) {
