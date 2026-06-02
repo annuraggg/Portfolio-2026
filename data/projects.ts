@@ -1,5 +1,5 @@
 export interface Project {
-  id: number;
+  id: string;
   title: string;
   date: string;
   cover?: string;
@@ -29,7 +29,7 @@ export interface Project {
 
 const projects: Project[] = [
   {
-    id: 9,
+    id: "scriptopia-campus",
     title: "Scriptopia Campus",
     date: "2025",
     cover: "/projects/scriptopiaCampus/cover.png",
@@ -73,7 +73,7 @@ const projects: Project[] = [
     group: "Scriptopia Suite",
   },
   {
-    id: 8,
+    id: "scriptopia-enterprise",
     title: "Scriptopia Enterprise",
     date: "2024",
     cover: "/projects/scriptopiaEnterprise/cover.png",
@@ -83,7 +83,7 @@ const projects: Project[] = [
       "Scriptopia Enterprise is a powerful platform built to streamline the creation, delivery, and evaluation of coding assessments for recruitment, education, and technical training. It offers real-time performance tracking, multi-language support, and a clean user interface for all stakeholders.",
     description: `Scriptopia Enterprise is a feature-rich, full-stack platform engineered to revolutionize the way organizations hire technical talent. Built for modern recruitment teams and engineering managers, it automates technical assessments, streamlines interview workflows, and provides a secure, scalable environment to evaluate developers fairly and efficiently. The system supports multi-language coding challenges, AI-powered proctoring, and real-time analytics — making it ideal for large-scale hiring or university outreach drives.`,
     problem: `Technical hiring is traditionally expensive, time-consuming, and difficult to scale. Recruiters struggle to assess coding skills objectively, while developers often encounter inconsistent and outdated interview experiences. The need was for a centralized, unbiased, and secure system that streamlines evaluation and supports modern hiring workflows.`,
-    solution: `Scriptopia Enterprise solves this with a robust, automated solution that offers secure, AI-assisted proctoring and real-time code evaluation. Recruiters can create assessments in multiple programming languages with customizable test cases and scoring logic. A sandboxed code execution environment compiles and evaluates code submissions instantly. To ensure test integrity, the platform includes random webcam image capture, tab switch detection, and detailed session logs. Recruiters get access to a powerful dashboard that visualizes candidate scores, attempts, and assessment health—making the selection process both transparent and efficient.`,
+    solution: `Scriptopia Enterprise solves this with a robust, automated solution that offers secure, AI-assisted proctoring and real-time code evaluation. Recruiters can create assessments in multiple programming languages with customizable test cases and scoring logic. A sandboxed code execution environment compiles and evaluates code submissions instantly. To ensure test integrity, the platform includes random webcam image capture, tab switch detection, and detailed session logs. Recruiters get access to a powerful dashboard that visualizes candidate scores, attempts, and assessment health—making the selection process both transparent and efficient  `,
     highlights: [
       "Custom coding assessments with support for multiple languages and test cases",
       "AI-assisted proctoring with webcam image capture and tab switch detection",
@@ -117,7 +117,7 @@ const projects: Project[] = [
     group: "Scriptopia Suite",
   },
   {
-    id: 7,
+    id: "scriptopia-code",
     title: "Scriptopia Code",
     date: "2024",
     cover: "/projects/scriptopiaCode/cover.png",
@@ -185,7 +185,7 @@ const projects: Project[] = [
   //   development: false,
   // },
   {
-    id: 5,
+    id: "docsdepot",
     title: "DocsDepot",
     date: "2023",
     cover: "/projects/docsDepot/cover.png",
@@ -234,7 +234,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 4,
+    id: "flowlab",
     title: "Flowlab",
     date: "2024",
     cover: "/projects/flowlab/cover.png",
@@ -257,7 +257,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 3,
+    id: "chatup",
     title: "Chatup",
     date: "2022",
     cover: "/projects/chatup/cover.png",
@@ -278,7 +278,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 2,
+    id: "callmaven",
     title: "CallMaven",
     date: "2022",
     cover: "/projects/callmaven/cover.png",
@@ -302,7 +302,7 @@ const projects: Project[] = [
   },
 
   {
-    id: 1,
+    id: "spycrop",
     title: "Spycrop",
     date: "2022",
     cover: "/projects/spycrop/cover.png",

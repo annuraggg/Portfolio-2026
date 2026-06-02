@@ -18,7 +18,7 @@ interface ProjectPageProps {
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { id } = await params;
-  const project = projects.find((p) => p.id === Number(id));
+  const project = projects.find((p) => p.id === String(id));
 
   if (!project) return notFound();
 
