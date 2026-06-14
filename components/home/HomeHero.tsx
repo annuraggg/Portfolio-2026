@@ -1,5 +1,3 @@
-import { LuCloudCog, LuCodeXml } from "react-icons/lu";
-
 export default function HomeHero() {
   return (
     <section className="relative mx-auto flex min-h-[65vh] w-full max-w-6xl flex-col items-center justify-center overflow-hidden text-center">
