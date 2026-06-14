@@ -12,7 +12,7 @@ export default function CaseStudyHeader({
   stats: { label: string; value: number }[];
 }) {
   return (
-    <section className="relative mx-auto flex min-h-[72vh] w-full max-w-6xl flex-col items-center justify-center overflow-hidden px-2 pb-16 pt-24 text-center md:px-6 md:pt-32">
+    <section className="relative mx-auto flex min-h-[72vh] w-full max-w-6xl flex-col items-center justify-center overflow-hidden px-2 pb-16 text-center md:px-6 md:pt-32">
       <div className="absolute left-1/2 top-1/2 -z-10 h-[500px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/[0.07] blur-[140px]" />
       <div className="mb-7 flex items-center gap-3 rounded-full border border-cyan-300/20 bg-cyan-300/[0.06] px-4 py-2 text-[10px] uppercase tracking-[0.34em] text-cyan-200">
         <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_14px_rgba(103,232,249,0.9)]" />

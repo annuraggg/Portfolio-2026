@@ -1,55 +1,36 @@
 import type { Project } from "@/types/project";
+import { LuCalendarClock, LuLayers3, LuUserRoundCog } from "react-icons/lu";
+import ProjectReveal from "./ProjectReveal";
+import ProjectSurface from "./ProjectSurface";
 
 export default function ProjectDetails({ project }: { project: Project }) {
   return (
-    <div className="flex md:flex-row flex-col text-center md:text-start mt-20 w-[85vw] md:w-[70vw]">
-      <div className="md:w-[50%]">
-        <div>
-          <b>My Role</b>
-          <p className="text-gray-500">{project.role}</p>
+    <ProjectReveal className="w-full max-w-7xl">
+      <section className="grid gap-4 py-16 md:grid-cols-[0.7fr_1.3fr] md:py-24">
+        <div className="grid">
+          <ProjectSurface className="p-5 md:p-6">
+            <div className="flex items-center gap-3 ">
+              <p className="text-[10px] uppercase tracking-[0.24em]">My Role</p>
+            </div>
+            <p className="text-xl text-white">{project.role}</p>
+          </ProjectSurface>
+          <ProjectSurface className="p-5 md:p-6">
+            <div className="flex items-center gap-3 ">
+              <p className="text-[10px] uppercase tracking-[0.24em]">Timeline</p>
+            </div>
+            <p className="text-sm leading-6 text-zinc-300">{project.timeline}</p>
+          </ProjectSurface>
         </div>
-
-        <div className="mt-5">
-          <b>Timeline</b>
-          <p className="text-gray-500">{project.timeline}</p>
-        </div>
-
-        {project.links?.github && (
-          <div className="mt-5">
-            <b>Github</b>
-            {project.links.github.map((link) => (
-              <a
-                key={link}
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-500 duration-200 transition-all cursor-pointer"
-              >
-                {link}
-              </a>
-            ))}
+        <ProjectSurface className="relative overflow-hidden p-6 md:p-8">
+          <div className="absolute -right-16 -top-20 h-44 w-44 rounded-full bg-violet-300/[0.08] blur-3xl" />
+          <div className="flex items-center gap-3 ">
+            <p className="text-[10px] uppercase tracking-[0.24em]">Overview</p>
           </div>
-        )}
-
-        {project.links?.demo && (
-          <div className="mt-5">
-            <b>Demo</b>
-            <a
-              href={project.links.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 hover:text-blue-500 duration-200 transition-all"
-            >
-              {project.links.demo}
-            </a>
-          </div>
-        )}
-      </div>
-
-      <div className="md:w-[52%] mt-10 md:mt-0">
-        <b>Overview</b>
-        <p className="mt-5 text-gray-500">{project.description}</p>
-      </div>
-    </div>
+          <p className="relative text-sm leading-7 text-zinc-400 md:text-base">
+            {project.description}
+          </p>
+        </ProjectSurface>
+      </section>
+    </ProjectReveal>
   );
 }

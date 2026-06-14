@@ -1,5 +1,4 @@
 import type { CloudCaseStudyChallenge } from "@/types/cloud-case-study";
-import { LuArrowDown, LuCircleAlert, LuCircleCheck } from "react-icons/lu";
 import CaseReveal from "./CaseReveal";
 import CaseSectionHeader from "./CaseSectionHeader";
 
@@ -12,33 +11,39 @@ export default function Challenges({
 
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-24">
+      <section className="py-16">
         <CaseSectionHeader eyebrow="Engineering Tradeoffs" title="Challenges" />
-        <div className="grid gap-4 md:grid-cols-2">
-        {challenges.map((challenge, index) => (
-          <div
-            key={index}
-            className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035]"
-          >
-            <div className="p-5 md:p-6">
-              <div className="flex items-center gap-3 text-rose-200">
-                <LuCircleAlert />
-                <p className="text-[10px] uppercase tracking-[0.24em]">Challenge</p>
+
+        <div className="mt-10">
+          {challenges.map((challenge, index) => (
+            <div key={index} className="py-7 first:pt-0 last:pb-0">
+              <div className="mb-6 font-mono text-xs text-zinc-500">
+                {String(index + 1).padStart(2, "0")}
               </div>
-              <p className="mt-4 text-sm leading-7 text-zinc-300">{challenge.problem}</p>
-            </div>
-            <div className="flex justify-center border-y border-white/10 bg-black/20 py-2">
-              <LuArrowDown className="text-cyan-300/60" />
-            </div>
-            <div className="bg-cyan-300/[0.025] p-5 md:p-6">
-              <div className="flex items-center gap-3 text-cyan-200">
-                <LuCircleCheck />
-                <p className="text-[10px] uppercase tracking-[0.24em]">Solution</p>
+
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-sm font-medium uppercase tracking-wide text-zinc-100">
+                    Challenge
+                  </h3>
+
+                  <p className="text-sm leading-7 text-zinc-400">
+                    {challenge.problem}
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-sm font-medium uppercase tracking-wide text-cyan-200">
+                    Resolution
+                  </h3>
+
+                  <p className="text-sm leading-7 text-zinc-400">
+                    {challenge.solution}
+                  </p>
+                </div>
               </div>
-              <p className="mt-4 text-sm leading-7 text-zinc-300">{challenge.solution}</p>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       </section>
     </CaseReveal>

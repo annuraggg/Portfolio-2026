@@ -19,12 +19,18 @@ export default async function ProjectPage({ params }: DynamicRoutePageProps) {
   if (!project) return notFound();
 
   return (
-    <div className="md:p-16 animate__animated animate__fadeIn">
+    <div className="relative w-[92vw] max-w-[1440px] animate__animated animate__fadeIn">
       <BackLink href="/fullstack" />
 
-      <div className="flex mt-5 md:mt-0 items-center justify-center p-10 flex-col">
-        <ProjectHeader title={project.title} date={project.date} />
-        <ProjectLinks links={project.links} />
+      <div className="flex flex-col items-center px-1 md:px-6">
+        <ProjectHeader
+          title={project.title}
+          date={project.date}
+          summary={project.summary}
+          role={project.role}
+          timeline={project.timeline}
+          development={project.development}
+        />
         <ProjectCover cover={project.cover as string} title={project.title} />
         <ProjectDetails project={project} />
         <ProjectProblemSolution
@@ -37,6 +43,7 @@ export default async function ProjectPage({ params }: DynamicRoutePageProps) {
           screenshots={project.screenshots}
           title={project.title}
         />
+        <ProjectLinks links={project.links} />
         <ProjectFooter />
       </div>
     </div>

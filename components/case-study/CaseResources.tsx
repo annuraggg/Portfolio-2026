@@ -12,7 +12,7 @@ export default function ResourceLinks({
 
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-24">
+      <section className="py-16">
         <CaseSectionHeader eyebrow="Engineering Artifacts" title="Resources" />
         <div className="grid gap-4 md:grid-cols-2">
           {resources.map((resource) => (

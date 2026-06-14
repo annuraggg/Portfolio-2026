@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { LuMaximize2 } from "react-icons/lu";
+import ProjectReveal from "./ProjectReveal";
 
 export default function ProjectCover({
   cover,
@@ -8,28 +10,17 @@ export default function ProjectCover({
   title: string;
 }) {
   return (
-    <div className="relative w-[80vw] md:w-auto">
-      <Image
-        src={cover}
-        alt={title}
-        width={1200}
-        height={600}
-        className="rounded-2xl mt-20 w-[100vw] md:w-[80vw]"
-      />
-      <Image
-        src={cover}
-        alt={`${title} blur bg`}
-        width={1200}
-        height={600}
-        className="rounded-2xl mt-20 w-[100vw] md:w-[80vw] absolute top-[-40px] blur-[500px] -z-50 opacity-30"
-      />
-      <Image
-        src={cover}
-        alt={`${title} blur bg`}
-        width={1200}
-        height={600}
-        className="rounded-2xl mt-20 w-[100vw] md:w-[80vw] absolute top-20 blur-[500px] -z-50 opacity-30"
-      />
-    </div>
+    <ProjectReveal className="w-full max-w-7xl">
+      <div className="group relative overflow-hidden rounded-3xl p-2 md:p-4">
+        <Image
+          src={cover}
+          alt={title}
+          width={1200}
+          height={600}
+          priority
+          className="h-auto w-full transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        />
+      </div>
+    </ProjectReveal>
   );
 }

@@ -11,7 +11,7 @@ export default function MigrationPlan({
 
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-24">
+      <section className="py-16">
         <CaseSectionHeader eyebrow="Execution Sequence" title="Migration Plan" />
         <div className="relative ml-3 border-l border-cyan-300/20 pl-8 md:ml-5 md:pl-12">
           {phases.map((phase, index) => (

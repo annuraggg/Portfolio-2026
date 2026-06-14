@@ -1,6 +1,5 @@
 import StackSection from "./StackSection";
 import type { CloudCaseStudyStack } from "@/types/cloud-case-study";
-import { LuActivity, LuBoxes, LuWorkflow } from "react-icons/lu";
 import CaseReveal from "./CaseReveal";
 import CaseSectionHeader from "./CaseSectionHeader";
 
@@ -11,7 +10,7 @@ export default function InfrastructureStack({
 }) {
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-24">
+      <section className="py-16">
         <CaseSectionHeader
           eyebrow="Platform Composition"
           title="Infrastructure Stack"
@@ -21,14 +20,12 @@ export default function InfrastructureStack({
           <StackSection
             title="Infrastructure"
             items={stack.infrastructure}
-            icon={<LuBoxes size={18} />}
           />
 
           {stack.observability && (
             <StackSection
               title="Observability"
               items={stack.observability}
-              icon={<LuActivity size={18} />}
             />
           )}
 
@@ -36,7 +33,6 @@ export default function InfrastructureStack({
             <StackSection
               title="Automation"
               items={stack.automation}
-              icon={<LuWorkflow size={18} />}
             />
           )}
         </div>

@@ -13,7 +13,7 @@ export default function CaseStudyArtifacts({
 
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-24">
+      <section className="py-16">
         <CaseSectionHeader eyebrow="Reference Material" title="Architecture & Artifacts" />
         <div className="grid grid-cols-1 gap-5">
         {screenshots.map((artifact, index) => (

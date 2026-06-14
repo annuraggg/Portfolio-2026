@@ -14,7 +14,7 @@ export default function CaseCover({
 }) {
   return (
     <CaseReveal className="w-full max-w-7xl">
-      <section className="py-16 md:py-28">
+      <section className="py-16">
         <CaseSectionHeader
           eyebrow="System Architecture"
           title="AWS Architecture"
