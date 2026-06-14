@@ -1,23 +1,32 @@
+import CaseList from "@/components/case-study/CaseList";
+import FeaturedSection from "@/components/home/FeaturedSection";
+import HomeHero from "@/components/home/HomeHero";
 import ProjectList from "@/components/project/ProjectList";
 
 const Work = () => {
   return (
-    <div className="md:w-[90%] w-[90vw] md:py-10 md:p-10 animate__animated animate__fadeIn">
-      <div className="text-center text-5xl font-poly drop-shadow-glow md:text-8xl">
-        <h1>
-          I craft digital experiences that people{" "}
-          <span className=" md:text-8xl font-gloock italic drop-shadow-none bg-gradient-to-b from-[#ffffff6e] via-[#d8d9d8bc] to-[#101010] text-transparent bg-clip-text">
-            love.
-          </span>
-        </h1>
-      </div>
-      <div className="text-center font-poly drop-shadow-glow mt-10">
-        <p className="text-gray-500 text-sm">Based in Mumbai.</p>
-      </div>
+    <div className="w-[90vw] max-w-[1440px] md:w-[90%] md:px-10">
+      <HomeHero />
 
-      <div className="mt-20"></div>
+      <FeaturedSection
+        eyebrow="Systems Engineering"
+        title="Cloud Case Studies"
+        href="/cloud"
+        linkLabel="View all cloud case studies"
+        accent="cyan"
+      >
+        <CaseList limit={2} showCategory />
+      </FeaturedSection>
 
-      <ProjectList />
+      <FeaturedSection
+        eyebrow="Product"
+        title="Featured Fullstack Projects"
+        href="/fullstack"
+        linkLabel="View all fullstack projects"
+        accent="violet"
+      >
+        <ProjectList limit={2} showCategory />
+      </FeaturedSection>
     </div>
   );
 };

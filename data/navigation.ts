@@ -10,7 +10,8 @@ export const primaryNavigation: NavigationItem[] = [
 
 export const footerNavigation: NavigationItem[] = [
   { name: "Work", href: "/" },
-  { name: "Info", href: "/about" },
-  { name: "Skills", href: "/skills" },
+  { name: "About", href: "/about" },
+  { name: "Cloud", href: "/cloud" },
+  { name: "FullStack", href: "/fullstack" },
   { name: "Contact", href: "/contact" },
 ];

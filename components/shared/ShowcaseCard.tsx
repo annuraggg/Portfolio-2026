@@ -8,9 +8,11 @@ const PLACEHOLDER_IMAGE = "https://via.placeholder.com/300";
 export default function ShowcaseCard({
   href,
   item,
+  category,
 }: {
   href: string;
   item: ShowcaseItem;
+  category?: string;
 }) {
   return (
     <Link
@@ -20,6 +22,11 @@ export default function ShowcaseCard({
       <div className="bg-gradient-to-b md:h-[75vh] from-[#222323] to-[#151515] flex-col md:flex-row rounded-3xl p-7 md:p-10 overflow-hidden duration-300 transition-all">
         <div className="flex md:justify-between md:flex-row flex-col-reverse">
           <div className="md:w-[90%]">
+            {category && (
+              <p className="mb-3 text-[10px] uppercase tracking-[0.26em] text-zinc-500">
+                {category}
+              </p>
+            )}
             {item.badge && (
               <p className="text-xs text-yellow-500 bg-yellow-500/20 px-2 py-1 rounded-full mb-2 w-fit">
                 {item.badge}

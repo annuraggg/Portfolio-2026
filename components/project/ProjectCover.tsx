@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { LuMaximize2 } from "react-icons/lu";
 import ProjectReveal from "./ProjectReveal";
 
 export default function ProjectCover({

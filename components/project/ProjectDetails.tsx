@@ -1,5 +1,4 @@
 import type { Project } from "@/types/project";
-import { LuCalendarClock, LuLayers3, LuUserRoundCog } from "react-icons/lu";
 import ProjectReveal from "./ProjectReveal";
 import ProjectSurface from "./ProjectSurface";
 

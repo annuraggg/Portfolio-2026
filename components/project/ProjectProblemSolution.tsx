@@ -1,3 +1,7 @@
+import { LuArrowRight } from "react-icons/lu";
+import ProjectReveal from "./ProjectReveal";
+import ProjectSectionHeader from "./ProjectSectionHeader";
+
 export default function ProjectProblemSolution({
   problem,
   solution,
@@ -30,6 +34,3 @@ export default function ProjectProblemSolution({
     </ProjectReveal>
   );
 }
-import { LuArrowRight, LuCircleAlert, LuCircleCheck } from "react-icons/lu";
-import ProjectReveal from "./ProjectReveal";
-import ProjectSectionHeader from "./ProjectSectionHeader";
