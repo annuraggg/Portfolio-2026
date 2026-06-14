@@ -24,16 +24,30 @@ export default async function CasePage({ params }: DynamicRoutePageProps) {
 
   if (!study) return notFound();
 
+  const stats = [
+    { label: "Infrastructure", value: study.stack.infrastructure.length },
+    { label: "Decisions", value: study.engineeringDecisions.length },
+    { label: "Controls", value: study.security?.length ?? 0 },
+  ];
+
   return (
-    <div className="animate__animated animate__fadeIn">
+    <div className="relative w-[92vw] max-w-[1440px] animate__animated animate__fadeIn">
       <BackLink href="/cloud" />
 
-      <div className="flex mt-5 md:mt-0 items-center justify-center p-10 flex-col">
-        <CaseHeader title={study.title} system={study.system} date={study.date} />
+      <div className="flex flex-col items-center px-1 md:px-6">
+        <CaseHeader
+          title={study.title}
+          system={study.system}
+          timeline={study.timeline}
+          overview={study.overview}
+          stats={stats}
+        />
 
-        <CaseResources resources={study.repositories} />
-
-        <CaseCover cover={study.cover as string} title={study.title} />
+        <CaseCover
+          cover={study.cover as string}
+          title={study.title}
+          description={study.architecture.description}
+        />
 
         <CaseDetails study={study} />
 
@@ -54,6 +68,8 @@ export default async function CasePage({ params }: DynamicRoutePageProps) {
         <CaseChallenges challenges={study.challenges} />
 
         <CaseArtifacts screenshots={study.screenshots} title={study.title} />
+
+        <CaseResources resources={study.repositories} />
 
         <CaseFooter />
       </div>

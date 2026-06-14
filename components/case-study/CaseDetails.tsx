@@ -1,64 +1,34 @@
 import type { CloudCaseStudy } from "@/types/cloud-case-study";
+import { LuCalendarClock, LuCloudCog, LuNetwork } from "react-icons/lu";
+import CaseReveal from "./CaseReveal";
+import CaseSurface from "./CaseSurface";
 
 export default function CaseStudyDetails({ study }: { study: CloudCaseStudy }) {
   return (
-    <div className="flex md:flex-row flex-col text-center md:text-start mt-20 w-[85vw] md:w-[70vw]">
-      <div className="md:w-[40%]">
-        <div>
-          <b>System</b>
-          <p className="text-gray-500">{study.system}</p>
-        </div>
-
-        <div className="mt-5">
-          <b>Timeline</b>
-          <p className="text-gray-500">{study.timeline}</p>
-        </div>
-
-        <div className="mt-5">
-          <b>Infrastructure</b>
-
-          <div className="mt-2 flex flex-wrap gap-2">
-            {study.stack.infrastructure.map((item) => (
-              <span
-                key={item}
-                className="text-xs px-2 py-1 border border-zinc-800 rounded-full text-gray-500"
-              >
-                {item}
-              </span>
-            ))}
+    <CaseReveal className="w-full max-w-7xl">
+      <section className="grid gap-4 py-6 md:grid-cols-[0.8fr_1.2fr]">
+        <CaseSurface className="p-6 md:p-8">
+          <div className="flex items-center gap-3 text-cyan-200">
+            <LuNetwork size={19} />
+            <p className="text-xs uppercase tracking-[0.24em]">System</p>
           </div>
-        </div>
-
-        {study.repositories && (
-          <div className="mt-5">
-            <b>Resources</b>
-
-            {study.repositories.map((repo) => (
-              <a
-                key={repo.url}
-                href={repo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-blue-500 duration-200 transition-all cursor-pointer"
-              >
-                {repo.title}
-              </a>
-            ))}
+          <p className="mt-5 text-2xl text-white">{study.system}</p>
+          <div className="mt-8 flex items-center gap-3 border-t border-white/10 pt-5 text-zinc-400">
+            <LuCalendarClock size={18} className="text-cyan-300/70" />
+            <p className="text-sm">{study.timeline}</p>
           </div>
-        )}
-      </div>
-
-      <div className="md:w-[60%] mt-10 md:mt-0">
-        <b>Overview</b>
-
-        <p className="mt-5 text-gray-500">{study.overview}</p>
-
-        <div className="mt-8">
-          <b>Architecture</b>
-
-          <p className="mt-3 text-gray-500">{study.architecture.description}</p>
-        </div>
-      </div>
-    </div>
+        </CaseSurface>
+        <CaseSurface className="relative overflow-hidden p-6 md:p-8">
+          <div className="absolute -right-14 -top-20 h-44 w-44 rounded-full bg-cyan-300/[0.08] blur-3xl" />
+          <div className="flex items-center gap-3 text-cyan-200">
+            <LuCloudCog size={19} />
+            <p className="text-xs uppercase tracking-[0.24em]">Architecture</p>
+          </div>
+          <p className="relative mt-5 text-sm leading-7 text-zinc-400 md:text-base">
+            {study.architecture.description}
+          </p>
+        </CaseSurface>
+      </section>
+    </CaseReveal>
   );
 }

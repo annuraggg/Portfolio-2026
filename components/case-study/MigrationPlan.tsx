@@ -1,4 +1,6 @@
 import type { CloudCaseStudyMigrationPhase } from "@/types/cloud-case-study";
+import CaseReveal from "./CaseReveal";
+import CaseSectionHeader from "./CaseSectionHeader";
 
 export default function MigrationPlan({
   phases,
@@ -8,33 +10,26 @@ export default function MigrationPlan({
   if (!phases?.length) return null;
 
   return (
-    <div className="mt-20 w-[85vw] md:w-[70vw]">
-      <h1 className="text-center text-3xl font-poly mb-10 drop-shadow-glow">
-        Migration Plan
-      </h1>
-
-      <div className="flex flex-col gap-5">
-        {phases.map((phase) => (
-          <div
-            key={phase.phase}
-            className="
-              rounded-lg
-              border
-              border-white/10
-              bg-white/5
-              p-6
-            "
-          >
-            <h2 className="text-xl font-semibold">
-              {phase.phase}
-            </h2>
-
-            <p className="mt-3 text-gray-500">
-              {phase.description}
-            </p>
+    <CaseReveal className="w-full max-w-7xl">
+      <section className="py-16 md:py-24">
+        <CaseSectionHeader eyebrow="Execution Sequence" title="Migration Plan" />
+        <div className="relative ml-3 border-l border-cyan-300/20 pl-8 md:ml-5 md:pl-12">
+          {phases.map((phase, index) => (
+            <div key={phase.phase} className="relative pb-10 last:pb-0">
+              <span className="absolute -left-[43px] top-1 flex h-5 w-5 items-center justify-center rounded-full border border-cyan-300/40 bg-[#101010] md:-left-[59px]">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.8)]" />
+              </span>
+              <p className="font-mono text-xs text-cyan-300/70">
+                {String(index + 1).padStart(2, "0")}
+              </p>
+              <h3 className="mt-2 text-xl text-white">{phase.phase}</h3>
+              <p className="mt-3 max-w-3xl text-sm leading-7 text-zinc-400">
+                {phase.description}
+              </p>
+            </div>
+          ))}
           </div>
-        ))}
-      </div>
-    </div>
+      </section>
+    </CaseReveal>
   );
 }
