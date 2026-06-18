@@ -1,6 +1,4 @@
-"use client";
-import dynamic from "next/dynamic";
-const InteractiveLogo = dynamic(() => import("./InteractiveLogo"), { ssr: false });
+import InteractiveLogo from "./InteractiveLogo";
 
 const LogoWithConfetti = () => {
   return <InteractiveLogo />;

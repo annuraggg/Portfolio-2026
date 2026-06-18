@@ -1,11 +1,12 @@
-"use client"
-import JSConfetti from "js-confetti";
+"use client";
+
 import Image from "next/image";
-import React from "react";
 
 const Logo = () => {
-  const jsConfetti = new JSConfetti();
-  const throwConfetti = () => {
+  const throwConfetti = async () => {
+    const { default: JSConfetti } = await import("js-confetti");
+    const jsConfetti = new JSConfetti();
+
     jsConfetti.addConfetti({
       confettiColors: ["#101010", "#1C1C1C", "#ffffff6e"],
     });

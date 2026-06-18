@@ -46,7 +46,8 @@ export default function ShowcaseCard({
             alt={item.title}
             width={1920}
             height={1018}
-            className="md:w-[90%] mt-5 md:mt-20 rounded-3xl group-hover:mt-10 transition-all duration-500 ease-in-out"
+            sizes={item.coverSizes ?? "(max-width: 768px) 82vw, 50vw"}
+            className="h-auto md:w-[90%] mt-5 md:mt-20 rounded-3xl group-hover:mt-10 transition-all duration-500 ease-in-out"
           />
         </div>
       </div>

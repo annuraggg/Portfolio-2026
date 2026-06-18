@@ -21,7 +21,8 @@ export default function CaseList({
             id: study.id,
             title: study.title,
             summary: study.overview,
-            cover: study.cover,
+            cover: study.cardCover ?? study.cover,
+            coverSizes: "(max-width: 768px) 82vw, 50vw",
           }}
         />
       ))}

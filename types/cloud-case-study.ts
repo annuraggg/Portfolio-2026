@@ -39,6 +39,7 @@ export interface CloudCaseStudy {
   title: string;
   date: string;
   cover?: string;
+  cardCover?: string;
   system: string;
   timeline: string;
   overview: string;

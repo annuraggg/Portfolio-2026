@@ -36,4 +36,11 @@ export const experience: Experience[] = [
       "Developed multiple Data Based MERN Stack Application with a bunch of cool peeps.",
     role: "Full Stack Intern",
   },
+  {
+    title: "LTM (Formerly, LTIMindtree)",
+    date: "Nov 2025 - Present",
+    description:
+      "Translate business requirements into configured SAP solutions while maintaining system integrity, compliance, and controlled transport management across environments.",
+    role: "Package Implementation Consultant",
+  },
 ];

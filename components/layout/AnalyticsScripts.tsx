@@ -1,14 +1,16 @@
 import Script from "next/script";
 
 export default function Scripts() {
+  const sessionRewindKey = process.env.NEXT_PUBLIC_SESSIONREWIND_KEY;
+
   return (
     <>
       {/* Google Analytics */}
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src="https://www.googletagmanager.com/gtag/js?id=G-N3LPZNS7CC"
       />
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="lazyOnload">
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -18,8 +20,9 @@ export default function Scripts() {
       </Script>
 
       {/* Session Rewind */}
-      <Script id="sessionrewind" strategy="afterInteractive">
-        {`
+      {sessionRewindKey && (
+        <Script id="sessionrewind" strategy="lazyOnload">
+          {`
             !(function(o){
               var w=window;
               w.SessionRewindConfig=o;
@@ -30,12 +33,13 @@ export default function Scripts() {
               var g=document.getElementsByTagName('head')[0];
               g.insertBefore(f,g.firstChild);
             })({
-              apiKey: 'YEfQWpLrG24OsxeBjkFZ79xBAXW7f1OS7PLQRaJo',
+              apiKey: '${sessionRewindKey}',
               startRecording: true,
               userInfo: { userId: 'visitor@anuragsawant.in' }
             });
           `}
-      </Script>
+        </Script>
+      )}
     </>
   );
 }

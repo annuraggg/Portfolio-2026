@@ -22,6 +22,7 @@ export default function ProjectList({
             title: project.title,
             summary: project.summary,
             cover: project.cover,
+            coverSizes: "(max-width: 768px) 82vw, 50vw",
             badge: project.development ? "Work In Progress!" : undefined,
           }}
         />

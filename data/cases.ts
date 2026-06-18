@@ -10,6 +10,8 @@ const cloudCaseStudies: CloudCaseStudy[] = [
 
     cover: "/cloud/scriptopia-campus/cover.svg",
 
+    cardCover: "/cloud/scriptopia-campus/cover-card.webp",
+
     system: "Scriptopia Campus",
 
     timeline: "Architecture Study • 2026",

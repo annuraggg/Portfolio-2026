@@ -1,17 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import {
-  polyNeutral,
-  polySlim,
-  polyMedian,
-  neueRegular,
-  neueBold,
-  neueLight,
-  neueMedium,
-  neueItalic,
-  gloock,
-} from "@/lib/fonts";
-import ReactLenis from "lenis/react";
+import { polyMedian, neueMedium, gloock } from "@/lib/fonts";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import AnalyticsScripts from "@/components/layout/AnalyticsScripts";
@@ -21,6 +10,9 @@ export const metadata: Metadata = {
   title: "Anurag Sawant - Full Stack Developer",
   description:
     "Hello, I'm Anurag Sawant, a Full Stack Developer. I craft digital experiences that people love.",
+  icons: {
+    icon: "/logoicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -31,11 +23,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${polyNeutral.variable} ${polySlim.variable} ${polyMedian.variable} ${neueRegular.variable} ${neueBold.variable} ${neueLight.variable} ${neueMedium.variable} ${neueItalic.variable} ${gloock.variable}`}
+      className={`${polyMedian.variable} ${neueMedium.variable} ${gloock.variable}`}
     >
-      <link rel="icon" type="image/png" href="/logoicon.png" />
       <body>
-        <ReactLenis root>{children}</ReactLenis>
+        {children}
         <LogRocketInit />
         <SpeedInsights />
         <Analytics />

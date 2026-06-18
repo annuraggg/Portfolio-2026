@@ -1,7 +1,15 @@
 "use client";
 
 import { useEffect } from "react";
-import LogRocket from "logrocket";
+
+const runWhenIdle = (callback: () => void) => {
+  if ("requestIdleCallback" in window) {
+    window.requestIdleCallback(() => callback(), { timeout: 3000 });
+    return;
+  }
+
+  setTimeout(callback, 1500);
+};
 
 export default function LogRocketInit() {
   useEffect(() => {
@@ -9,10 +17,14 @@ export default function LogRocketInit() {
 
     if (!appId) return;
 
-    LogRocket.init(appId);
-    LogRocket.identify(
-      Math.random().toString(36).substring(2) + Date.now().toString(36)
-    );
+    runWhenIdle(() => {
+      import("logrocket").then(({ default: LogRocket }) => {
+        LogRocket.init(appId);
+        LogRocket.identify(
+          Math.random().toString(36).substring(2) + Date.now().toString(36)
+        );
+      });
+    });
   }, []);
 
   return null;

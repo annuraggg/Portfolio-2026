@@ -1,15 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-polyneutral: "PolyNeutral", sans-serif;
-  --font-polyslim: "PolySlim", sans-serif;
-  --font-poly: "PolyMedian", sans-serif;
-  --font-neueregu: "NeueRegular", sans-serif;
-  --font-neue: "neueMedium", sans-serif;
-  --font-neuelight: "NeueLight", sans-serif;
-  --font-neuemedium: "NeueMedium", sans-serif;
-  --font-neueitalic: "NeueItalic", sans-serif;
-  --font-gloock: "Gloock", serif;
+  --font-poly: var(--font-polymedian-source), sans-serif;
+  --font-neue: var(--font-neuemedium-source), sans-serif;
+  --font-gloock: var(--font-gloock-source), serif;
 
   --drop-shadow-glow: 0 0 10px rgba(255, 255, 255, 0.35);
   --drop-shadow-dark-glow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -22,7 +16,7 @@
 body {
   background-color: #101010;
   color: #d8d9d8;
-  font-family: "neueMedium";
+  font-family: var(--font-neuemedium-source), sans-serif;
 }
 
 .loader {

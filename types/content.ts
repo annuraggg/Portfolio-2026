@@ -31,5 +31,6 @@ export interface ShowcaseItem {
   title: string;
   summary: string;
   cover?: string;
+  coverSizes?: string;
   badge?: string;
 }
